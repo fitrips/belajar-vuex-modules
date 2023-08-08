@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(row, index) in listTransaksi" :key="index">
+                <tr v-for="(row, index) in listTransaksi" :key="index" class="text-center">
                     <td>{{  index + 1 }}</td>
                     <td>{{  row.donatur }}</td>
                     <td>{{  row.bantuan }}</td>
