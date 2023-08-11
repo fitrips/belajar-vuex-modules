@@ -4,7 +4,11 @@ import User from "../views/User.vue";
 import Berita from "../views/Berita.vue";
 import Product from "../views/Product.vue";
 import SingleProduct from "../views/SingleProduct.vue";
-import Category from "../views/Category.vue"
+import Category from "../views/Category.vue";
+import Login from "../views/Login.vue";
+import store from "../store";
+import FilterPageKategori1 from "../views/FilterPageKategori1.vue";
+
 
 const routes = [
     {
@@ -23,25 +27,45 @@ const routes = [
         component: Berita,
     },
     {
-        path: "/product",
+        path: "/produk",
         name: "Product",
         component: Product,
     },
     {
-        path: "/product/:id",
+        path: "/produk/:id",
         name: "SingleProduct",
         component: SingleProduct,
     },
     {
-        path: "/category",
+        path: "/kategori",
         name: "Category",
         component: Category,
     },
+    {
+        path: "/category/:category",
+        name: "FilterCategory",
+        component: FilterPageKategori1,
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
+        meta: { requiresGuest: true ,}
+    },
+   
 ];
 
 const router = createRouter({
     history: createWebHistory(),
     routes
+});
+
+router.beforeEach(( to, from, next ) => {
+    if(to.meta.requiresGuest && store.getters["auth/isAuthenticated"]) {
+       next("/");
+    } else {
+        next();
+    }
 });
 
 export default router;

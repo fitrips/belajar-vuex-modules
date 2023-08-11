@@ -3,7 +3,7 @@ import axios from "axios";
 const kategori = {
     namespaced: true,
     state: {
-        kategoriData: [],
+        KategoriData: [],
     },
     getters: {
         getKategori: (state) => state.kategoriData,
