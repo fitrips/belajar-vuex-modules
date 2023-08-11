@@ -6,7 +6,8 @@ import users from "./modules/user";
 import berita from "./modules/berita";
 import product from "./modules/product";
 import kategori from "./modules/kategori";
-import auth from "./modules/auth"
+import auth from "./modules/auth";
+import notification from "./modules/notification";
 
 const store = createStore({
     state: {
@@ -20,7 +21,8 @@ const store = createStore({
         berita,
         product,
         kategori,
-        auth
+        auth,
+        notification
     },
 });
 
